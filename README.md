@@ -104,7 +104,13 @@ After quitting the browser using `browser.quit()`, I stored the results of the a
 
 &nbsp;&nbsp;&nbsp;&nbsp;`outfile.write(mars_news_json)`
 
+The below code was used in my computer's command terminal to export the JSON file into mongodb.
 
+`from pymongo import MongoClient`
+
+`mongo = MongoClient(port=27017)`
+
+`mongoimport --type json -d mars_mission -c mars_news --drop --jsonArray mars_news.json`
 
 
 
