@@ -92,6 +92,21 @@ I first created a list called `mars_news_articles = []` which would hold a list 
 
 To confirm the results of the script run, I printed the `mars_news_articles` list.
 
+![mars_news_article_list](https://github.com/willmino/Mission_to_Mars/blob/main/images/mars_news_article_list.png)
+
+After quitting the browser using `browser.quit()`, I stored the results of the automated web scrape into a JSON file and also to a Mongodb Database. The resulting JSON file can be found here.
+
+[mars_new.json](https://github.com/willmino/Mission_to_Mars/blob/main/mars_news.json)
+
+`mars_news_json = json.dumps(mars_news_articles)`
+
+`with open("mars_news.json","w") as outfile:`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`outfile.write(mars_news_json)`
+
+
+
+
 
 
 
