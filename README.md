@@ -49,20 +49,49 @@ Below is the parental `find_all()` function that has all the individual news art
 
 `all_divs = soup.find_all('div', class_ = 'col-md-8')`
 
-Here are the test extractions for all news article titles. We iterated through the article to extract the titles exclusively from the preview text to highlight the printed results.
+Here are the test extractions for all news article titles. I iterated through the article to extract the titles exclusively from the preview text to highlight the printed results. For the article `title` the `find()` function looked for all elements that contained the article titles on the webpage. These `div` elements were passed through the `find()` function along with the `class_` `content_title`. `.text` was chained to this function.
+For the `preview` extraction, I passed the tag `div` and the `class_` `article_teaser_body` into the `find()` function.
 
-for div in all_divs:
-    title= div.find('div', class_ = 'content_title').text
-    print(title)
+`for div in all_divs:`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`title= div.find('div', class_ = 'content_title').text`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`print(title)`
 
 ![Article_titles](https://github.com/willmino/Mission_to_Mars/blob/main/images/article_titles.png)
 
 
 
-for div in all_divs:
-    preview = div.find('div', class_='article_teaser_body').text
-    print(preview)
+`for div in all_divs:`
 
-![Article_preview_text]()
+&nbsp;&nbsp;&nbsp;&nbsp;`preview = div.find('div', class_='article_teaser_body').text`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`print(preview)`
+
+![Article_preview_text](https://github.com/willmino/Mission_to_Mars/blob/main/images/article_previews.png)
+
+Once I confirmed the code successfully extracted the information, I began writing the Splinter automated script to extract the website information.
+
+I first created a list called `mars_news_articles = []` which would hold a list of dictionaries. Each dictionary corresponded to a news article's title and the preview text. The keys for the dictionary were `title` and `preview`. At the end of the script, the list would hold all of the dictionaries containing the article information from the website. Below is the script.
+
+`mars_news_articles = []` 
+
+`for div in all_divs:`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`title = div.find('div', class_='content_title').text`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`preview=div.find('div', class_='article_teaser_body').text`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`mars_news_dict={}`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`mars_news_dict["title"] = title`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`mars_news_dict["preview"] = preview`
+
+&nbsp;&nbsp;&nbsp;&nbsp;`mars_news_articles.append(mars_news_dict)`
+
+To confirm the results of the script run, I printed the `mars_news_articles` list.
+
+
 
 
