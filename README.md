@@ -45,21 +45,24 @@ A test extraction of the HTML elements was performed. We first designated the va
 
 `# Scrape all the article titles and preview text from the NASA mars news website`
 
-Below is the parental `find_all()` function that has all the individual news article boxes. Each news article box has a title, link, and summary description among others.
+Below is the parental `find_all()` function that has all the individual news article boxes. Each news article box has a title, link, and summary preview text among others.
 
 `all_divs = soup.find_all('div', class_ = 'col-md-8')`
 
-# scrape all the article titles from the NASA mars news website and print them to confirm the results before running the 
+Here are the test extractions for all news article titles. We iterated through the article to extract the titles exclusively from the preview text to highlight the printed results.
 
 for div in all_divs:
     title= div.find('div', class_ = 'content_title').text
     print(title)
-# scrape all the article preview text from the NASA mars news website
+
+![Article_titles](https://github.com/willmino/Mission_to_Mars/blob/main/images/article_titles.png)
+
+
 
 for div in all_divs:
     preview = div.find('div', class_='article_teaser_body').text
     print(preview)
 
-
+![Article_preview_text]()
 
 
