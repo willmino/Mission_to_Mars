@@ -7,7 +7,7 @@ I generated a report of Mars data in python, using Pandas, Splinter and Beatiful
 
 ## Sources
 
-![Mars Temperature Data Website](https://data-class-mars-challenge.s3.amazonaws.com/Mars/index.html)
+[Mars Temperature Data Website](https://data-class-mars-challenge.s3.amazonaws.com/Mars/index.html)
 
 # Analysis
 
