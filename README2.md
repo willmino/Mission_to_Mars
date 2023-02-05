@@ -212,6 +212,100 @@ From viewing the resulting appropriately converted mars_df dataframe with all th
 
 `mean_min_temp_per_month = mars_df[["min_temp"]].groupby(mars_df["month"]).mean()`
 
-I created a new dataframe that contained the `month` and `min_temp` columns from the original set. However, the temperature data was grouped by each month and the average low temperature for month was obtained with the `groupby()` function and the `.mean()` function. 
+I created a new dataframe, `mean_min_temp_per_month` that contained the `month` and `min_temp` columns from the original set. However, the temperature data was grouped by each month and the average low temperature for each month was obtained by using the `groupby()` function and the `.mean()` function. Since I created a new dataframe, it was easy to plot the average monthly low temperatures as a bar chart. This was accomplished using the below lines of code:
+
+`plt.bar(mean_min_temp_per_month.index, mean_min_temp_per_month["min_temp"])`
+
+`plt.xlabel("Martian Month")`
+
+`plt.ylabel("Average Low Temperature (C)")`
+
+`plt.title("Average Martian Low Temperature per Month")`
+
+The resulting plot was displayed:
+
+![Mean_Low_Per_Month](https://github.com/willmino/Mission_to_Mars/blob/main/images/mean_min_temp_per_month.png)
+
+I could tell from the plot that the coldest month, with the lowest average temperature, was the 3rd month with an average low temperature of about -83.31 degrees. The warmest month on Mars was the 8th month with an average low temperature of -68.38 degrees.
+The exact min and max values for the average monthly low temperatures were determined by these lines of code.
+
+`print(mean_min_temp_per_month.min())`
+
+`print(mean_min_temp_per_month.max())`
+
+4. The Martian months with the lowest and highest average pressure were observed by plotting that data in another bar chart.
+
+First, a new dataframe was created by retrieving the `pressure` and `month` columns from the mars_df dataframe. The `groupby()` function was chained to the `pressure` column and the `month` column was passed through the `groupby()` function. The `mean()` function was chained to the end of the code. This produced a dataframe that had each month along with its corresponding average monthly atmostpheric pressure readings.
+
+`average_pressure_per_month = mars_df[["pressure"]].groupby(mars_df["month"]).mean()`
+
+I then plotted this dataframe into a bar chart using the below code.
+
+`plt.bar(average_pressure_per_month.index,average_pressure_per_month["pressure"])`
+
+`plt.xlabel("Martian Month")`
+
+`plt.ylabel("Average Atmospheric Pressure")`
+
+`plt.title("Monthly Amtospheric Pressure on Mars")`
+
+![Monthly_average_atmospheric_pressure](https://github.com/willmino/Mission_to_Mars/blob/main/images/average_atmos_pressure.png)
+
+To retrieve the exact values for the lowest and highest monthly atmospheric pressures, the following lines of code were executed:
+
+`print(average_pressure_per_month.min())`
+
+`print(average_pressure_per_month.max())`
+
+This code determined that the lowest average monthly atmospheric pressure was 745.05 and this corresponded to the 6th Martian month, as viewed on the plot. The highest average monthly pressure was 931.31 and this corresponded to the 9th Martian month.
+
+5. To determine the number of Earth days in a Martian year, I plotted the cycle of minimum temperature readings taken over the course of the mars mission, versus the Earth days on which the readings were taken. When viewing the cyclicle patterns exhibited by the low and high points of temperature readings, I could visually estimate how many Earth days were in a Martian year. To do this, I observed how many days elapsed between two neighboring peaks of temperature values.
+
+The below block of code illustrated how the plot was constructed. The count for number of earth days was achieved by chaining the `count()` function to the `terrestrial_date` column of the `mars_df` dataframe. I then pythonically created an array that had a list consisting of each Earth day. The `earth_days` function was then set equal to the list comprehension `x for x in earth_day_array` which extracted all the array values for each Earth day into a list. With this list, I could finally plot the `number of earth days` on the x axis and the Martian `min_temp` (y axis) reading that was taken on each Earth day.
+
+`import numpy as np`
+
+`earth_day_count = mars_df["terrestrial_date"].count()`
+
+`earth_day_array = np.arange(1,earth_day_count+1)`
+
+`earth_days = [x for x in earth_day_array]`
+
+`plt.plot(earth_days, mars_df["min_temp"])`
+
+`plt.xlabel("Number of Terrestrial Days")`
+
+`plt.ylabel("Average Minimum Martian Temperature")`
+
+`plt.title("Earth Days vs Martian Annual Weather")`
+
+![Earth_Days_versus_Mars_Weather](https://github.com/willmino/Mission_to_Mars/blob/main/images/Earth_days_vs_Mars_weather.png)
+
+To visually estimate the number of Earth (terrestrial) days in a Martian year, I found two terrestrial days with peak temperature readings close to the cleanest intervals on the x axis. These terrestrial days were on day number 1430 (almost half-way between 1250 and 1500) and 750. The distance between either two extreme minima or two extreme maxima will help approximate the length of a cycle in Martian annual temperature and thus the length of a Martian year. I subtracted the terrestrial day values between two close peaks (maxima) to get this estimation: `1430-750 = 680`. Thus, I determined there is approximately 680 Earth days in a Martian year. There is exactly 687 Earth days in a Martian year according to the below website. Thus, my approximation is accurate. This was achieved with less than a 25% margin of error. 
+
+[NASA Mars Article](https://mars.nasa.gov/resources/21392/mars-in-a-minute-how-long-is-a-year-on-mars/#:~:text=The%20Earth%20zips%20around%20the,year%20means%20longer%20seasons%20too.")
+
+`100*(687 - 680)/(687) = 1.02% Margin of Error`
+
+The final dataframe `mars_df` was exported from the python code to the Mission_to_Mars github repository:
+
+[mars_data](https://github.com/willmino/Mission_to_Mars/blob/main/mars_data.csv)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
