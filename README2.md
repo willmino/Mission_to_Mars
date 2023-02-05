@@ -247,7 +247,7 @@ I then plotted this dataframe into a bar chart using the below code.
 
 `plt.ylabel("Average Atmospheric Pressure")`
 
-`plt.title("Monthly Amtospheric Pressure on Mars")`
+`plt.title("Monthly Atmospheric Pressure on Mars")`
 
 ![Monthly_average_atmospheric_pressure](https://github.com/willmino/Mission_to_Mars/blob/main/images/average_atmos_pressure.png)
 
@@ -287,9 +287,9 @@ To visually estimate the number of Earth (terrestrial) days in a Martian year, I
 
 `100*(687 - 680)/(687) = 1.02% Margin of Error`
 
-The final dataframe `mars_df` was exported from the python code to the Mission_to_Mars github repository:
+The final dataframe `mars_df` was exported as a csv file from the python code to the Mission_to_Mars github repository:
 
-[mars_data](https://github.com/willmino/Mission_to_Mars/blob/main/mars_data.csv)
+[mars_data.csv](https://github.com/willmino/Mission_to_Mars/blob/main/mars_data.csv)
 
 
 
