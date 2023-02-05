@@ -204,9 +204,9 @@ I then used the dataframe to answer some important analysis questions for the Ma
 
 From viewing the resulting appropriately converted mars_df dataframe with all the data from the website's HTML table code, I could begin addressing some key findings for a report.
 
-1. I found there are 12 months on the planet Mars. The line of code `mars_df["month"].max()` yielded the number 12. One the highest month is reached on Mars, 12, the calendar on Mars resets back to the first month of the Martian year.
+1. I found there are 12 months on the planet Mars. The line of code `mars_df["month"].max()` yielded the number 12. Once the highest month is reached on Mars, 12, the calendar on Mars resets back to the first month of the Martian year.
 
-2. We had about 1867 sols (Martian days) worth of data by using the code `mars_df["sol"].count()`. Even though there were higher sol day readings, days greater than 1867, data was missing for many days. So, taking a count of the rows in the dataset would reveal how many sols worth of data we had.
+2. The website had about 1867 sols (Martian days) worth of data by using the code `mars_df["sol"].count()`. Even though there were higher sol day readings that the total count of rows obtained, ex: days greater than 1867, data was missing for many days. Thus, taking a count of the rows in the dataset was sufficient to reveal how many sols worth of data we had.
 
 3. The coldest and warmest months on Mars were determined by this code:
 
