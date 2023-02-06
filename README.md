@@ -97,7 +97,7 @@ To confirm the results of the script run, I printed the `mars_news_articles` lis
 
 After quitting the browser using `browser.quit()`, I stored the results of the automated web scrape into a JSON file and also to a Mongodb Database. The resulting JSON file can be found here.
 
-[mars_news.json](https://raw.githubusercontent.com/willmino/Mission_to_Mars/main/mars_news.json)
+[mars_news.json](https://github.com/willmino/Mission_to_Mars/blob/main/mars_news.json
 
 `mars_news_json = json.dumps(mars_news_articles)`
 
