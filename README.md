@@ -249,7 +249,7 @@ I then plotted this dataframe into a bar chart using the below code.
 
 `plt.title("Monthly Atmospheric Pressure on Mars")`
 
-![Monthly_average_atmospheric_pressure](https://github.com/willmino/Mission_to_Mars/blob/main/images/average_atmos_pressure.png)
+![Monthly_average_atmospheric_pressure](https://github.com/willmino/Mission_to_Mars/blob/main/images/mars_month_atmos_pressure.png)
 
 To retrieve the exact values for the lowest and highest monthly atmospheric pressures, the following lines of code were executed:
 
